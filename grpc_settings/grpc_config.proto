@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package proto;
+
+
+service User {
+	rpc UserInfo (UserInforequest) returns (UserInfoReply);
+	rpc AppointmentInfo (AppointmentInforequest) returns (AppointmentInfoReply);
+}
+
+message UserInforequest {
+	string email = 1;
+}
+  
+message UserInfoReply {
+	string id = 1;
+}
+
+message AppointmentInforequest {
+	string email = 1;
+}
+  
+message AppointmentInfoReply {
+	string id = 1;
+}
+
+message DelayedReply {
+	string id = 1;
+	repeated UserInforequest request = 2;
+}
+
